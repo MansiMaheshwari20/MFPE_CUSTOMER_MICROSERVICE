@@ -9,23 +9,19 @@ namespace MFPE_CustomerApi.Repository
 {
     public class CustomerRepository : IRepository<Customer>
     {
-        public static List<Customer> products = new List<Customer>();
-        //{
-           // new Customer {CustomerId = 1, Name = "Riya", Address = "Ballupur Road, Dehradun",  PANno = "DCRP124" , DOB = Convert.ToDateTime("1998-11-20 01:02:01 AM")},
-           // new Customer {CustomerId = 2, Name = "Reema", Address = "Vijay Colony, Delhi", PANno = "DCRP23456", DOB = Convert.ToDateTime("1999-11-10 02:02:01 AM")}
+        public static List<Customer> products = new List<Customer>()
+        {
+            new Customer {CustomerId = 1, Name = "Riya", Address = "Ballupur Road, Dehradun",  PANno = "DCRP124" , DOB = Convert.ToDateTime("1998-11-20 01:02:01 AM")},
+            new Customer {CustomerId = 2, Name = "Reema", Address = "Vijay Colony, Delhi", PANno = "DCRP23456", DOB = Convert.ToDateTime("1999-11-10 02:02:01 AM")}
             
-        //};
-        public void Add(Customer item)
+        };
+        public bool Add(Customer item)
         {
             products.Add(item);
-            
+            return true;
         }
 
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public Customer Get(int id)
         {
             return products.Find(p => p.CustomerId == id);
@@ -38,9 +34,6 @@ namespace MFPE_CustomerApi.Repository
         }
         
 
-        public void Update(Customer item)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
